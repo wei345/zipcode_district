@@ -12,7 +12,7 @@ def zipcode_func():
     primary key (province,ty,city,district_name))
     ENGINE=InnoDB  DEFAULT CHARSET=utf8 comment "中国邮编省份、县市区映射关系";
     """
-    url="http://tools.2345.com/yb.htm" #2345网站邮编、省市区
+    url="http://tools.2345.com/yb.htm" #2345网站邮编、省市区  broken on Feb 26 2024
     headers={'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.80 Safari/537.36'
     }
     html=requests.get(url,headers=headers)
@@ -45,3 +45,7 @@ def zipcode_func():
             l = [province, ty, city, district_name, district_phone, district_zipcode]
             result.append(l)
     return result
+
+if __name__ == '__main__':
+    print ("Hi :)")
+    print(zipcode_func())
